@@ -1,0 +1,30 @@
+OOA Final Proposal
+
+The General Topic:
+I am going to do a dynamic, distributed financial aggregator and analytics engine that could support multiple trading engines working at the same time. My major focus is on creating a project that can grab real-time market data, calculate relayed statical indices, and provide analysis. The project could provide efficient and smart trading strategies and stock portfolios.
+
+A Description of the Problem to be Solved:
+The big problem we’re facing is pulling together and crunching stock data from all over the place, in real-time, for trading engines that each have their own special set of stats they want. Since we're not allowed to use some of the usual shortcuts, we've got to be clever about collecting, sprucing up, and crunching the numbers, and then getting those insights out without the usual messaging toolkit. We need to set up some smart filters and sorters that make sure each trading engine gets exactly what it's looking for. Moreover, these engines need to make their own trade calls (maybe), based on the fresh stats they're fed.
+
+A Listing of the EIP Patterns:
+Polling Consumer - For trading engines to regularly check for new data, ensuring that statistics are up-to-date while avoiding the prohibited direct message channel approach.
+Event-Driven Consumer - To react immediately to specific changes in the data feed, facilitating real-time analytics and decision-making.
+Datatype Channel - For categorizing statistical outputs by datatype, which simplifies data subscription for the trading engines based on their individual strategy requirements.
+Message Translator - To convert the incoming tick data into a consistent format suitable for statistical analysis, despite differing source formats. (to get the information into a format that you prefer)
+Aggregator - To compile statistics from various data points, creating a composite view for more complex analytics such as regression and moving averages.
+Message Filter - To ensure that each trading engine receives only the data relevant to its configured interests, enhancing efficiency.
+
+A Listing of the Design Patterns to be leveraged. 
+Singleton - The Reporting Engine will be designed as a Singleton, ensuring that each trading engine instance has a centralized, consistent view of the statistics.
+Strategy - This pattern allows the system to encapsulate different statistical algorithms, making the system adaptable to different analytic requirements, and do the calculation or operation the projected needed.
+Composite - To manage portfolios as hierarchical collections of stocks and derivatives, enabling uniform operations across them.
+Observer - By observing specific data-type channels, trading engines can respond to changes in real-time, enabling dynamic trading strategies.
+May apply the following patterns:
+Factory Method - For creating instances of different statistics computation classes, allowing for flexibility in extending the analytics capabilities.
+Proxy - To provide a layer of abstraction over the real-time data feeds, potentially allowing for lazy access or protection of the data source.
+
+A Summary of the anticipated deliverable:
+I am going to build a toolset that'll have around 20 to 30 classes, all sorted into groups that handle different tasks like grabbing data, doing the number crunching for stats, analyzing trading moves, and keeping users in the loop with reports. In order to cover all functions and patterns, it will have around 30 to 40 source files.
+
+
+
